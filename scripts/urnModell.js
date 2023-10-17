@@ -69,6 +69,16 @@ function setResult(result) {
     resultTag.innerText = String.raw`\( P(A) = ${result} \)`;
     resultTag.removeAttribute("hidden");
 
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+
     if (window.MathJax)
-            MathJax.typesetPromise([resultTag]).then(() => {});
+    {
+        try {
+            MathJax.typeset();
+        } catch {
+            MathJax.typesetPromise().then(() => {});
+        }
+    }  
 }

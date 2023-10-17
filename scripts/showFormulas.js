@@ -231,9 +231,15 @@ async function showCurrentFormula() {
         name.innerText = selected.name;
         formula.innerText = selected.formula;
         description.innerText = selected.description;
-
+        
         if (window.MathJax)
-            MathJax.typesetPromise([formula]).then(() => {});
+        {
+            try {
+                MathJax.typeset();
+            } catch {
+                MathJax.typesetPromise().then(() => {});
+            }
+        }  
 
         selected.showForm();
     }

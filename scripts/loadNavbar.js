@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async (event) => {
-    let response = await fetch("http://localhost:5500/templates/navbar.html");
+    let response = await fetch("templates/navbar.html");
 
     do {
         if (response.ok)
