@@ -34,7 +34,7 @@ document.getElementById("calc").addEventListener("click", () => {
         result *= CombinationsNoRepetitions(restN, restK);
         result /= CombinationsNoRepetitions(n, k);
     }
-    setResult(result.toPrecision(6));
+    setResult(result < 1 ? result.toPrecision(6) : "Невозможная операция");
 });
 
 document.getElementById("addGroup").addEventListener("click", () => {
