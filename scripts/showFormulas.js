@@ -26,8 +26,9 @@ let formulas = {
             document.getElementById("calc").addEventListener("click", () => {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
-
-                let result = PlacementsNoRepetitions(n, k);
+                
+                let validate = k > n || k < 0 || n < 0;
+                let result = validate ? PlacementsNoRepetitions(n, k) : "Неверные входные данные";
                 setResult(result);
             });
         }
@@ -57,7 +58,9 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let result = PlacementsWithRepetitions(n, k);
+                let validate = k > n || k < 0 || n < 0;
+
+                let result = validate ? PlacementsWithRepetitions(n, k) : "Неверные входные данные";
                 setResult(result);
             });
         }
@@ -84,7 +87,7 @@ let formulas = {
             document.getElementById("calc").addEventListener("click", () => {
                 let n = Number(document.getElementById("n").value);
 
-                let result = PermutationsNoRepetitions(n);
+                let result = n > 0 ? PermutationsNoRepetitions(n) : "n должен быть > 0";
                 setResult(result);
             });
         }
@@ -131,8 +134,12 @@ let formulas = {
                 let groupsArray = Array.from(document.getElementById("groups")
                                                     .querySelectorAll("input"))
                                        .map((el) => el.value == null ? 0 : Number(el.value));
+                
+                let validate = groupsArray.some(x => x < 0);
+                let result = validate 
+                ? PermutationsWithRepetitions(groupsArray) 
+                : "В группах не может быть отричательных чисел";
 
-                let result = PermutationsWithRepetitions(groupsArray);
                 setResult(result);
             });
         }
@@ -161,8 +168,9 @@ let formulas = {
             document.getElementById("calc").addEventListener("click", () => {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
-
-                let result = CombinationsNoRepetitions(n, k);
+                
+                let validate = n < 0 || k > n || k < 0;
+                let result = validate ? CombinationsNoRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });
         }
@@ -191,7 +199,8 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let result = CombinationsWithRepetitions(n, k);
+                let validate = n < 0 || k < 0 || k < n - 1;
+                let result = validate ? CombinationsWithRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });
         }

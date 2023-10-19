@@ -16,13 +16,18 @@ document.getElementById("calc").addEventListener("click", () => {
             let i = Number(element.id.substring(5));
             let m = Number(document.getElementById(`m${i}`).value);
             let r = Number(document.getElementById(`r${i}`).value);
+            if (m < 0 || r < 0 || m < r)
+            {
+                setResult("Невозможная операция");
+                return;
+            }
 
             restK -= r;
             restN -= m;
 
             result *= CombinationsNoRepetitions(m, r);
     });
-    if (restN < 0 || restK < 0) {
+    if (k > n || restN < 0 || restK < 0) {
         setResult("Невозможная операция");
     }
     else {
