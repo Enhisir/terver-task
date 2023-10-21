@@ -27,7 +27,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
                 
-                let validate = k > n || k < 0 || n < 0;
+                let validate = k <= n && k >= 0 && n >= 0;;
                 let result = validate ? PlacementsNoRepetitions(n, k) : "Неверные входные данные";
                 setResult(result);
             });
@@ -58,8 +58,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let validate = k > n || k < 0 || n < 0;
-
+                let validate = k <= n && k >= 0 && n >= 0;
                 let result = validate ? PlacementsWithRepetitions(n, k) : "Неверные входные данные";
                 setResult(result);
             });
@@ -135,7 +134,7 @@ let formulas = {
                                                     .querySelectorAll("input"))
                                        .map((el) => el.value == null ? 0 : Number(el.value));
                 
-                let validate = groupsArray.some(x => x < 0);
+                let validate = groupsArray.every(x => x >= 0);
                 let result = validate 
                 ? PermutationsWithRepetitions(groupsArray) 
                 : "В группах не может быть отричательных чисел";
@@ -169,7 +168,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
                 
-                let validate = n < 0 || k > n || k < 0;
+                let validate = k <= n && k >= 0 && n >= 0;;
                 let result = validate ? CombinationsNoRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });
@@ -199,7 +198,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let validate = n < 0 || k < 0 || k < n - 1;
+                let validate = k <= n && k >= 0 && n >= 0;;
                 let result = validate ? CombinationsWithRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });

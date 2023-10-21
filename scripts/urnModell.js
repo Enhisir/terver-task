@@ -34,7 +34,7 @@ document.getElementById("calc").addEventListener("click", () => {
         result *= CombinationsNoRepetitions(restN, restK);
         result /= CombinationsNoRepetitions(n, k);
     }
-    setResult(result < 1 ? result.toPrecision(6) : "Невозможная операция");
+    setResult(result <= 1 ? result.toPrecision(6) : "Невозможная операция");
 });
 
 document.getElementById("addGroup").addEventListener("click", () => {
@@ -46,6 +46,7 @@ document.getElementById("addGroup").addEventListener("click", () => {
 
     let newGroup = document.createElement("div");
     newGroup.className = "urn-group d-flex flex-row";
+    newGroup.id = `group${n}`;
     newGroup.innerHTML = `
     <div class="mb-2 me-2">
         <label>Группа №${n}</label>
