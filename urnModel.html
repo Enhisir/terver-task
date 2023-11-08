@@ -54,24 +54,22 @@
                     <input class="form-control" type="number" id="k" placeholder="k">
                 </div>
                 <div id="groups">
-                    <div class="urn-group d-flex flex-row" id="group1">
+                    <div class="urn-group d-flex flex-row" id="group">
                         <div class="mb-2 me-2">
                             <label>Группа</label>
-                            <input class="form-control" type="number" id="m1" placeholder="m1">
-                        </div>
-                        <div class="mb-2">
-                            <label>Среди извлеченных элементов гр. (для п. 2)</label>
-                            <input class="form-control" type="number" id="r1" placeholder="r1">
+                            <input class="form-control" type="number" id="m" placeholder="m">
                         </div>
                     </div>
                 </div>
-                <div class="mb-2">
-                    <button class="btn btn-primary" id="addGroup">добавить группу (только для п. 2)</button>
-                    <button class="btn btn-primary" id="deleteGroup">удалить группу</button>
-                    <button class="btn btn-primary" id="calc">посчитать</button>
+                <div class="mb-2 d-flex flex-row">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="variant">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">С перестановками</label>
+                    </div>
+                    <button class="btn btn-primary mx-3" id="calc">посчитать</button>
                 </div>
-                <h4 class="mx-auto my-3" id="result" hidden></h4>
             </div>
+            <h4 class="mx-auto my-3" id="result" hidden></h4>
         </div>
     </div>
     <script src="scripts/calculate.js"></script>

@@ -58,7 +58,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let validate = k <= n && k >= 0 && n >= 0;
+                let validate = k >= 0 && n >= 0;
                 let result = validate ? PlacementsWithRepetitions(n, k) : "Неверные входные данные";
                 setResult(result);
             });
@@ -134,10 +134,10 @@ let formulas = {
                                                     .querySelectorAll("input"))
                                        .map((el) => el.value == null ? 0 : Number(el.value));
                 
-                let validate = groupsArray.every(x => x >= 0);
+                let validate = groupsArray.some(num => num == null || num < 0);
                 let result = validate 
-                ? PermutationsWithRepetitions(groupsArray) 
-                : "В группах не может быть отричательных чисел";
+                ? "В группах не может быть отричательных чисел"
+                : PermutationsWithRepetitions(groupsArray);
 
                 setResult(result);
             });
@@ -168,7 +168,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
                 
-                let validate = k <= n && k >= 0 && n >= 0;;
+                let validate = k <= n && k >= 0 && n >= 0;
                 let result = validate ? CombinationsNoRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });
@@ -198,7 +198,7 @@ let formulas = {
                 let n = Number(document.getElementById("n").value);
                 let k = Number(document.getElementById("k").value);
 
-                let validate = k <= n && k >= 0 && n >= 0;;
+                let validate = k <= n && k >= 0 && n >= 0;
                 let result = validate ? CombinationsWithRepetitions(n, k) : "Неверные данные";
                 setResult(result);
             });
